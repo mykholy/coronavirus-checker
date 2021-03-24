@@ -1,10 +1,11 @@
-let express = require("express");
-let nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
-let app = express();
-let port = 3000;
+let express = require("express"); //framework in node js
+let nodemailer = require('nodemailer'); //send mail
+const bodyParser = require('body-parser'); //to get body reqest from form 
+let app = express(); // initialize express
+let port = 3000; //port 
 
 
+/*  createTransport with option */
 let transporter = nodemailer.createTransport({
     service: 'smtp',
     host: 'coronavirus-checker.ml',
@@ -18,10 +19,10 @@ let transporter = nodemailer.createTransport({
 
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); // To parse body name from urlencoded
 
 
-app.use(express.static("./static"));
+app.use(express.static("./static")); // to set static file as html and images and js
 
 
 // POST method route
